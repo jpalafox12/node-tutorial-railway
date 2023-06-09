@@ -1,5 +1,5 @@
 const express = require('express')
-const mysql = require('mysql')
+const mysql = require('mysql2') //por que no es mysql debe ser mysql2
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
 
