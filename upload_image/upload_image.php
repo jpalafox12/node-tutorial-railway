@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image = $_POST['image'];
 
     $path = "img/$nom_image.png";
-    $actual_path = "http://localhost/upload_image/$path";
+    $actual_path = "https://node-tutorial-railway-production.up.railway.app/upload_image/$path";
 
     // Verificar si el archivo existe y eliminarlo si es necesario
     if (file_exists($path)) {
