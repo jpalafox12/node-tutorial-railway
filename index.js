@@ -431,6 +431,39 @@ app.post('/enviarCorreo',async (req, res) => {
     })
   }
 
+const fs = require('fs');
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.post('/', (req, res) => {
+    const { idImage, nomImage, image } = req.body;
+
+    const path = `img/${nomImage}.png`;
+    const actualPath = `http://localhost/upload_image/${path}`;
+
+    // Verificar si el archivo existe y eliminarlo si es necesario
+    if (fs.existsSync(path)) {
+        fs.unlinkSync(path);
+    }
+
+    // Guardar la nueva imagen
+    fs.writeFileSync(path, Buffer.from(image, 'base64'));
+
+    const message = 'Se agregó correctamente la imagen';
+
+    const response = {
+        message: message
+    };
+
+    res.json(response);
+});
+
+app.listen(3000, () => {
+    console.log('Servidor escuchando en el puerto 3000');
+});
+
 
   
   
