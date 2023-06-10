@@ -431,42 +431,4 @@ app.post('/enviarCorreo',async (req, res) => {
     })
   }
 
-const fs = require('fs');
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  if (req.method === 'POST') {
-    let data = '';
-    req.on('data', chunk => {
-      data += chunk;
-    });
-
-    req.on('end', () => {
-      const { idImage, nomImage, image } = JSON.parse(data);
-      const path = `img/${nomImage}.png`;
-      const actualPath = `https://node-tutorial-railway-production.up.railway.app//upload_image/${path}`;
-
-      // Verificar si el archivo existe y eliminarlo si es necesario
-      if (fs.existsSync(path)) {
-        fs.unlinkSync(path);
-      }
-
-      // Guardar la nueva imagen
-      fs.writeFileSync(path, Buffer.from(image, 'base64'));
-
-      const message = 'Se agregó correctamente la imagen';
-
-      const response = {
-        message: message
-      };
-
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify(response));
-    });
-  }
-});
-
-server.listen(3000, () => {
-  console.log('Servidor escuchando en el puerto 3000');
-});
 
