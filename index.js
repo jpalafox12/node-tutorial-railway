@@ -209,8 +209,8 @@ app.post('/mascota/add',(req,res) => {
         foto_mascota: req.body.foto_mascota,
         id_usuario: req.body.id_usuario
     }
-    const query = `INSERT INTO mascotas (nombre_mascota, color_mascota, raza_mascota, especie_mascota, fecha_nacimiento_mascota, foto_mascota, sexo_mascota, id_usuario)
-  VALUES ('${mascota.nombre_mascota}', '${mascota.color_mascota}', '${mascota.raza_mascota}', '${mascota.especie_mascota}', '${mascota.fecha_nacimiento_mascota}', '${mascota.foto_mascota}', '${mascota.sexo_mascota}', '${mascota.id_usuario}');`;
+    const query = `INSERT INTO mascotas (nombre_mascota, color_mascota, raza_mascota, especie_mascota, fecha_nacimiento_mascota, foto_mascota, baja_mascota,sexo_mascota, id_usuario)
+  VALUES ('${mascota.nombre_mascota}', '${mascota.color_mascota}', '${mascota.raza_mascota}', '${mascota.especie_mascota}', '${mascota.fecha_nacimiento_mascota}', '${mascota.foto_mascota}', '0', '${mascota.sexo_mascota}', '${mascota.id_usuario}');`;
 
     conexion.query(query, mascota,(error)=>{
 
