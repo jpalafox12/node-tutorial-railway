@@ -209,7 +209,8 @@ app.post('/mascota/add',(req,res) => {
         foto_mascota: req.body.foto_mascota,
         id_usuario: req.body.id_usuario
     }
-    const query = `INSERT INTO mascotas SET ?`
+    const query = `INSERT INTO mascotas (nombre_mascota, color_mascota, raza_mascota,especie_mascota,fecha_nacimiento_mascota,foto_mascota,sexo_mascota,id_usuario)
+     VALUES ('${nombre_mascota}', '${color_mascota}', '${raza_mascota}','${especie_mascota}', '${fecha_nacimiento_mascota}','${foto_mascota}', '${sexo_mascota}', '${id_usuario}');`
     conexion.query(query, mascota,(error)=>{
 
         if(error) return console.error(error.message)
