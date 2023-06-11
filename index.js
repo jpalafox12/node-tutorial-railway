@@ -84,8 +84,8 @@ app.post('/usuario/add',(req,res) => {
     }
     const query = `INSERT INTO usuario (nombre_usuario, apellido_usuario, telefono_usuario,
         email_usuario,estado_usuario,ciudad_usuario,colonia_usuario,cp_usuario,calle_usuario,num_ext_usuario,password_usuario,id_veterinario,estatus_usuario,baja_usuario,foto_usuario)
-     VALUES ('${nombre_usuario}', '${apellido_usuario}', '${telefono_usuario}','${email_usuario}', '${estado_usuario}','${ciudad_usuario}', '${colonia_usuario}',
-      '${cp_usuario}','${calle_usuario}', '${num_ext_usuario}', '${password_usuario}','${id_veterinario}','0', '0', '');`
+     VALUES ('${usuario.nombre_usuario}', '${usuario.apellido_usuario}', '${usuario.telefono_usuario}','${usuario.email_usuario}', '${usuario.estado_usuario}','${usuario.ciudad_usuario}', '${usuario.colonia_usuario}',
+      '${usuario.cp_usuario}','${usuario.calle_usuario}', '${usuario.num_ext_usuario}', '${usuario.password_usuario}','${usuario.id_veterinario}','0', '0', '');`
     conexion.query(query, usuario,(error)=>{
 
         if(error) return console.error(error.message)
