@@ -80,15 +80,16 @@ app.post('/usuario/add',(req,res) => {
         calle_usuario: req.body.calle_usuario,
         num_ext_usuario: req.body.num_ext_usuario,
         password_usuario: req.body.password_usuario,
-        id_veterinario: req.body.id_veterinario,
-        baja_usuario: req.body.baja_usaurio,
         estatus_usuario: req.body.estatus_usuario,
+        baja_usuario: req.body.baja_usuario,
         foto_usuario: req.body.foto_usuario,
+        id_veterinario: req.body.id_veterinario
     }
-    const query = `INSERT INTO usuario (nombre_usuario, apellido_usuario, telefono_usuario,
-        email_usuario,estado_usuario,ciudad_usuario,colonia_usuario,cp_usuario,calle_usuario,num_ext_usuario,password_usuario,id_veterinario, baja_usuario, estatus_usuario, foto_usuario)
+        const query = `INSERT INTO usuario (nombre_usuario, apellido_usuario, telefono_usuario,
+        email_usuario,estado_usuario,ciudad_usuario,colonia_usuario,cp_usuario,calle_usuario,num_ext_usuario,password_usuario,estatus_usuario,baja_usuario,foto_usuario,id_veterinario)
      VALUES ('${usuario.nombre_usuario}', '${usuario.apellido_usuario}', '${usuario.telefono_usuario}','${usuario.email_usuario}', '${usuario.estado_usuario}','${usuario.ciudad_usuario}', '${usuario.colonia_usuario}',
-      '${usuario.cp_usuario}','${usuario.calle_usuario}', '${usuario.num_ext_usuario}', '${usuario.password_usuario}','${usuario.id_veterinario}','${usuario.baja_usuario}', '${usuario.estatus_usuario}', '${usuario.foto_usuario}');`
+      '${usuario.cp_usuario}','${usuario.calle_usuario}', '${usuario.num_ext_usuario}', '${usuario.password_usuario}','${usuario.estatus_usuario}','${usuario.baja_usuario}', '${usuario.foto_usuario}', '${usuario.id_veterinario}');`    
+
     conexion.query(query, usuario,(error)=>{
 
         if(error) return console.error(error.message)
