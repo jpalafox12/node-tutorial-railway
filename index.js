@@ -82,7 +82,10 @@ app.post('/usuario/add',(req,res) => {
         password_usuario: req.body.password_usuario,
         id_veterinario: req.body.id_veterinario
     }
-    const query = `INSERT INTO usuario SET ?`
+    const query = `INSERT INTO usuario (nombre_usuario, apellido_usuario, telefono_usuario,
+        email_usuario,estado_usuario,ciudad_usuario,colonia_usuario,cp_usuario,calle_usuario,num_ext_usuario,password_usuario,id_veterinario,estatus_usuario,baja_usuario,foto_usuario)
+     VALUES ('${nombre_usuario}', '${apellido_usuario}', '${telefono_usuario}','${email_usuario}', '${estado_usuario}','${ciudad_usuario}', '${colonia_usuario}',
+      '${cp_usuario}','${calle_usuario}', '${num_ext_usuario}', '${password_usuario}','${id_veterinario}','0', '0', '');`
     conexion.query(query, usuario,(error)=>{
 
         if(error) return console.error(error.message)
